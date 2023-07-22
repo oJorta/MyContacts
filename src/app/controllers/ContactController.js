@@ -37,7 +37,7 @@ class ContactController {
     const contactExists = await ContactsRepository.findByEmail(email);
 
     if (contactExists) {
-      return response.status(400).json({ error: 'This email has already been taken' });
+      return response.status(400).json({ error: 'This email is already in use' });
     }
 
     const contact = await ContactsRepository.create({

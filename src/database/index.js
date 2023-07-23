@@ -10,14 +10,14 @@ const client = new Client({
 
 client.connect();
 
-async function query(sqlQuery) {
-  const { rows } = await client.query(sqlQuery);
+async function query(sqlQuery, values) {
+  const { rows } = await client.query(sqlQuery, values);
 
   return rows;
 }
 
 // client.query('SELECT * FROM contacts;').then((result) => console.log(result));
 
-query('SELECT * FROM contacts;').then((result) => console.log(result));
+// query('SELECT * FROM contacts;').then((result) => console.log(result));
 
-module.exports = query;
+module.exports = { query };
